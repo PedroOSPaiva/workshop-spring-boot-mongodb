@@ -20,10 +20,12 @@ public class UserService {
 		return repo.findAll();
 	}
 	
-	public User findByid(String id) {
+	public User findById(String id) {
 		User user = repo.findOne(id);
 		if (user == null) {
 			throw new ObjectNotFoundException("Objeto não encontrado");
 		}
+	return user;
+	
 	}
 }
