@@ -1,5 +1,6 @@
 package com.pedropaiva.workshopmongo.config;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +18,19 @@ public class Instantiation implements CommandLineRunner{
 	private UserRepository userRepository;
 	
 	@Override
-	public void run(String...arg0) throws Exception {
+	public void run(String... args) throws Exception {
 	
-	userRepository.deleteAll();
+		userRepository.deleteAll();
 		
-	User maria = new User(null, "Maria Brown", "maria@gmail.com");
-	User alex = new User(null, "Alex Green", "alex@gmail.com");
-	User bob = new User(null, "Bob Grey", "bob@gmail.com");
-	
-	userRepository.save(Arrays.asList(maria, alex, bob));
+		User maria = new User(null,"Maria Brown","maria@gmai.com");
+		User alex = new User(null,"Alex Green","alex@gmai.com");
+		User bob = new User(null,"Bob Grey","bob@gmai.com");
+		User jarlene = new User(null,"Jarlene Maria","jarlenemariaoliveira@gmail.com");
+		
+		
+		userRepository.save(Arrays.asList(maria, alex, bob, jarlene));
+		
 	}
+
+	
 }
