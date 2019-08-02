@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.pedropaiva.workshopmongo.Services.exception.ObjectNotFoundException;
 import com.pedropaiva.workshopmongo.domain.User;
+import com.pedropaiva.workshopmongo.dto.UserDTO;
 import com.pedropaiva.workshopmongo.repository.UserRepository;
 
 @Service
@@ -26,6 +27,13 @@ public class UserService {
 			throw new ObjectNotFoundException("Objeto não encontrado");
 		}
 	return user;
+	}
 	
+	public User insert(User obj) {
+		return repo.insert(obj);
+	}
+	
+	public User fromDTO(UserDTO objDto) {
+		return new User(objDto.getId(),objDto.getName(),objDto.getEmail());
 	}
 }
